@@ -173,6 +173,7 @@ onMounted(() => {
         @include font_color("font_color3");
         transition: all 0.2s linear;
         span {
+          display: inline-block;
           margin-left: 5px;
           @include hour_color("hour_color1");
           @include font_color("font_color2");
