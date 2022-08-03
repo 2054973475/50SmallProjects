@@ -40,7 +40,6 @@ const toPath = (event: MouseEvent) => {
   }
   &__contant {
     width: 300px;
-    height: 300px;
     background-color: white;
     text-align: center;
     padding: 20px;
