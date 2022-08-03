@@ -31,6 +31,11 @@ const routes = [
     name: "themeClock",
     component: () => import("../components/ThemeClock/index.vue"),
   },
+  {
+    path: "/drawingApp",
+    name: "drawingApp",
+    component: () => import("../components/DrawingApp/index.vue"),
+  },
 ];
 
 const router = createRouter({

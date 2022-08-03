@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     AFormItem: typeof import('ant-design-vue/es')['FormItem']
     AInput: typeof import('ant-design-vue/es')['Input']
     AInputPassword: typeof import('ant-design-vue/es')['InputPassword']
+    DrawingApp: typeof import('./src/components/DrawingApp/index.vue')['default']
     DrinkWater: typeof import('./src/components/DrinkWater/index.vue')['default']
     EventKeycodes: typeof import('./src/components/EventKeycodes/index.vue')['default']
     FormWave: typeof import('./src/components/FormWave/index.vue')['default']
