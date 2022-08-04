@@ -36,6 +36,21 @@ const routes = [
     name: "drawingApp",
     component: () => import("../components/DrawingApp/index.vue"),
   },
+  {
+    path: "/kineticLoader",
+    name: "kineticLoader",
+    component: () => import("../components/KineticLoader/index.vue"),
+  },
+  {
+    path: "/autoTextEffect",
+    name: "autoTextEffect",
+    component: () => import("../components/AutoTextEffect/index.vue"),
+  },
+  {
+    path: "/passwordGenerator",
+    name: "passwordGenerator",
+    component: () => import("../components/PasswordGenerator/index.vue"),
+  },
 ];
 
 const router = createRouter({

@@ -100,6 +100,7 @@ onMounted(() => {
     transition: all 0.2s linear;
   }
   &__buttom {
+    z-index: 100;
     @include font_color("font_color2");
     position: absolute;
     top: 20%;
