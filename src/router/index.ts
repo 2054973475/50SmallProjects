@@ -51,6 +51,11 @@ const routes = [
     name: "passwordGenerator",
     component: () => import("../components/PasswordGenerator/index.vue"),
   },
+  {
+    path: "/notesApp",
+    name: "notesApp",
+    component: () => import("../components/NotesApp/index.vue"),
+  },
 ];
 
 const router = createRouter({

@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     Home: typeof import('./src/components/Home/index.vue')['default']
     KineticLoader: typeof import('./src/components/KineticLoader/index.vue')['default']
     Login: typeof import('./src/components/Login/index.vue')['default']
+    NotesApp: typeof import('./src/components/NotesApp/index.vue')['default']
     PasswordGenerator: typeof import('./src/components/PasswordGenerator/index.vue')['default']
     RandomChoicePicker: typeof import('./src/components/RandomChoicePicker/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
