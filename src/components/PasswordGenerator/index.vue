@@ -58,7 +58,7 @@
         <input
           class="PG__submit"
           type="submit"
-          @click="formSubmit"
+          @click.prevent="formSubmit"
           value="Generate Password"
         />
       </form>
