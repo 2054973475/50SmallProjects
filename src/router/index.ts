@@ -56,6 +56,11 @@ const routes = [
     name: "notesApp",
     component: () => import("../components/NotesApp/index.vue"),
   },
+  {
+    path: "/todoList",
+    name: "todoList",
+    component: () => import("../components/TodoList/index.vue"),
+  },
 ];
 
 const router = createRouter({

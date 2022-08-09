@@ -27,5 +27,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeClock: typeof import('./src/components/ThemeClock/index.vue')['default']
+    TodoList: typeof import('./src/components/TodoList/index.vue')['default']
   }
 }

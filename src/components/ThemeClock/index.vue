@@ -16,7 +16,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, Ref, onMounted } from "vue";
+import { ref, Ref, onMounted, watch } from "vue";
 import dayjs from "dayjs";
 import isoWeek from "dayjs/plugin/isoWeek";
 dayjs.extend(isoWeek);
@@ -51,6 +51,7 @@ const time = <Ref<string>>ref();
 const monthWeek = <Ref<string>>ref();
 const weekNum = <Ref<number>>ref();
 const theme = <Ref<string>>ref("Dark mode");
+const secondCount = <Ref<number>>ref(0);
 
 const updateTheme = () => {
   if (theme.value === "Dark mode") {
@@ -61,24 +62,38 @@ const updateTheme = () => {
     theme.value = "Dark mode";
   }
 };
+watch(secondCount, () => {
+  weekNum.value = dayjs().isoWeekday();
+  const week = weekdays[weekNum.value - 1].toUpperCase();
+  const month = monthsShort[dayjs().month()].toUpperCase();
+  monthWeek.value = week + "," + month;
+
+  time.value = dayjs().format("hh:mm  A");
+
+  let hourtime = dayjs().hour() > 12 ? dayjs().hour() - 12 : dayjs().hour();
+  hourtime = hourtime + dayjs().minute() / 60 + dayjs().second() / 60 / 60;
+  const minutetime = dayjs().minute() + dayjs().second() / 60;
+
+  if (dayjs().second() === 0 || minutetime === 0 || hourtime === 12) {
+    hour.value.style.transition = "none";
+    minute.value.style.transition = "none";
+    second.value.style.transition = "none";
+  } else {
+    hour.value.style.transition = "all 0.2s linear";
+    minute.value.style.transition = "all 0.2s linear";
+    second.value.style.transition = "all 0.2s linear";
+  }
+
+  hour.value.style.transform = `rotate(${(hourtime / 12) * 360 - 90}deg)`;
+  minute.value.style.transform = `rotate(${(minutetime / 60) * 360 - 90}deg)`;
+  second.value.style.transform = `rotate(${
+    (dayjs().second() / 60) * 360 - 90
+  }deg)`;
+});
 
 const times = () => {
   requestAnimationFrame(() => {
-    weekNum.value = dayjs().isoWeekday();
-    const week = weekdays[weekNum.value - 1].toUpperCase();
-    const month = monthsShort[dayjs().month()].toUpperCase();
-    monthWeek.value = week + "," + month;
-
-    time.value = dayjs().format("hh:mm  A");
-
-    let hourtime = dayjs().hour() > 12 ? dayjs().hour() - 12 : dayjs().hour();
-    hourtime = hourtime + dayjs().minute() / 60 + dayjs().second() / 60 / 60;
-    const minutetime = dayjs().minute() + dayjs().second() / 60;
-    hour.value.style.transform = `rotate(${(hourtime / 12) * 360 - 90}deg)`;
-    minute.value.style.transform = `rotate(${(minutetime / 60) * 360 - 90}deg)`;
-    second.value.style.transform = `rotate(${
-      (dayjs().second() / 60) * 360 - 90
-    }deg)`;
+    secondCount.value = dayjs().second();
     times();
   });
 };
