@@ -61,6 +61,16 @@ const routes = [
     name: "todoList",
     component: () => import("../components/TodoList/index.vue"),
   },
+  {
+    path: "/visualChart",
+    name: "visualChart",
+    component: () => import("../components/VisualChart/index.vue"),
+  },
+  {
+    path: "/vueRequest",
+    name: "vueRequest",
+    component: () => import("../components/VueRequest/index.vue"),
+  },
 ];
 
 const router = createRouter({
